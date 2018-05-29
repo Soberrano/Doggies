@@ -19,9 +19,9 @@ namespace Doggies.Controllers.Api
         [AllowAnonymous]
         [Route("InsertIntoTest")]
         [HttpPost]
-        public async Task<IHttpActionResult> InsertIntoTest(string testValue)
+        public async Task<IHttpActionResult> InsertIntoTest(string value)
         {
-            await TestManager.InsertIntoTest(testValue);
+            await TestManager.InsertIntoTest(value);
             return WrapSuccess();
         }
 

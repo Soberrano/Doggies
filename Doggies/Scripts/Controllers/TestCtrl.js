@@ -6,7 +6,12 @@
 			{
 				method: "POST",
 				url: "/api/test/InsertIntoTest",
-				data:$scope.insertInto
+				params: {
+
+					value: $scope.insertInto.value
+				}
+
+
 			}
 		);
 	}

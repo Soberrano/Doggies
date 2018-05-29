@@ -12,7 +12,7 @@ namespace Doggies.Models.Field
     public class TestManager:Manager
     {
         public TestManager(Concrete concrete) : base(concrete) { }
-        public async Task InsertIntoTest(string testValue)
+        public async Task InsertIntoTest(string value)
         {
             using (var cnt = await Concrete.OpenConnectionAsync())
             {
@@ -21,13 +21,26 @@ namespace Doggies.Models.Field
                    commandType: CommandType.StoredProcedure,
                    param: new
                    {
-                       testValue
+                       value
                    }
                    );
             }
+            public async Task InsertIntoTest(string value)
+            {
+                using (var cnt = await Concrete.OpenConnectionAsync())
+                {
+                    await cnt.ExecuteAsync(
+                       sql: "dbo.InsertIntoTest",
+                       commandType: CommandType.StoredProcedure,
+                       param: new
+                       {
+                           value
+                       }
+                       );
+                }
 
 
-        }
+            }
 
     }
 }
