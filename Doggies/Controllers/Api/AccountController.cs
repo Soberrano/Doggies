@@ -68,7 +68,9 @@ namespace Doggies.Controllers.Api
             var result = await UserManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                await SignInAsync(user, false);
+                AuthManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+                var identity = UserManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                AuthManager.SignIn(identity);
                 await myUserManager.addUser(CurrentUser.Id);
                 return WrapSuccess(await CreateUserProfile(user));
             }
