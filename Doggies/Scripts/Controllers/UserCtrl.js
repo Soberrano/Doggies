@@ -118,7 +118,7 @@
 						if (eve.EventId === scopeEvent.EventId) {
 							var isneed = true;
 							$scope.dogs.forEach(function (d) {//нужно поместить собаку в наш массив собак
-								if (d.DogId == dog.DogId) {
+								if (d.DogId === dog.DogId) {
 									isneed = false;
 								}
 

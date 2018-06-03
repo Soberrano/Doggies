@@ -12,25 +12,25 @@ using System.Web.Http;
 
 namespace Doggies.Controllers.Api
 {
-    [NotRedirectWebApiAuthorize]
-    [RoutePrefix("api/test")]
-    public class TestController : BaseApiController
-    {
-        [AllowAnonymous]
-        [Route("InsertIntoTest")]
-        [HttpPost]
-        public async Task<IHttpActionResult> InsertIntoTest(string value)
-        {
-            await TestManager.InsertIntoTest(value);
-            return WrapSuccess();
-        }
+    //[NotRedirectWebApiAuthorize]
+    //[RoutePrefix("api/test")]
+    //public class TestController : BaseApiController
+    //{
+    //    [AllowAnonymous]
+    //    [Route("InsertIntoTest")]
+    //    [HttpPost]
+    //    public async Task<IHttpActionResult> InsertIntoTest(string value)
+    //    {
+    //        await TestManager.InsertIntoTest(value);
+    //        return WrapSuccess();
+    //    }
 
-        protected TestManager TestManager
-        {
-            get
-            {
-                return Request.GetOwinContext().Get<TestManager>();
-            }
-        }
-    }
+    //    protected TestManager TestManager
+    //    {
+    //        get
+    //        {
+    //            return Request.GetOwinContext().Get<TestManager>();
+    //        }
+    //    }
+    //}
 }

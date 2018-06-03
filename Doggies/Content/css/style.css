@@ -1,0 +1,27 @@
+﻿.body {
+    background-color: #eeeeee;
+}
+
+header {
+    background-color: #2c4059;
+}
+
+.text-color {
+    color: #eee;
+}
+
+nav li:hover {
+    background-color: #2c4059;
+}
+
+nav li a:hover {
+    color: #fff;
+}
+
+.main {
+    background-color: #ff5517;
+}
+
+    .main:hover {
+        background-color: #ff5517;
+    }
