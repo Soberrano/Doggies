@@ -16,14 +16,38 @@ namespace Doggies.Controllers.Api
     [RoutePrefix("api/test")]
     public class TestController : BaseApiController
     {
+      
+
+       
         [AllowAnonymous]
-        [Route("InsertIntoTest")]
-        [HttpPost]
-        public async Task<IHttpActionResult> InsertIntoTest(string value)
+        [Route("GetAllEvents")]
+        [HttpPost] 
+        
+        //!!!!------уменьшить объем возвращаемой информации----------
+        public async Task<IHttpActionResult> GetAllEvents()
         {
-            await TestManager.InsertIntoTest(value);
+            List<Event> events = await TestManager.GetAllEvents();
+            return WrapSuccess(events);
+        }
+        [AllowAnonymous]
+        [Route("SetChallengeValue")]
+        [HttpPost]
+        public async Task<IHttpActionResult> SetChallengeValue(int dId, string chName, decimal chValue)
+        {
+            await TestManager.SetChallengeValue(dId, chName, chValue);
             return WrapSuccess();
         }
+
+        [AllowAnonymous]
+        [Route("GetDogsByEventId")]
+        [HttpPost]
+        //!!!!-----уменьшить объем возвращаемой информации-----------
+        public async Task<IHttpActionResult> GetDogsByEventId(int id)
+        {
+            List<Dog> dogs = await TestManager.GetDogsByEventId(id);
+            return WrapSuccess(dogs);
+        }
+
 
         protected TestManager TestManager
         {

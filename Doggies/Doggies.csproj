@@ -317,6 +317,7 @@
     <Content Include="Views\Home\SPA\App\user.cshtml" />
     <Content Include="Views\Home\SPA\App\judge.cshtml" />
     <Content Include="Views\Home\SPA\User\UserProfile.cshtml" />
+    <Content Include="Views\Home\SPA\App\exhebition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

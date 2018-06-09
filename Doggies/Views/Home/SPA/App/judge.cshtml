@@ -1,4 +1,27 @@
-﻿<form  method="post">
-	<input type="text" name="test" value="" ng-model="insertInto.value" />
-	<input type="submit" name="name" value=""  ng-click="insertIntoTest()"/>
-</form>
+﻿
+<div>
+	название мероприятия:
+	<select ng-model="helper" ng-change="getDogsByEventAndSetEventType()">
+		<option ng-repeat="event in events" value="{{event.EventId}}">{{event.EventName}}</option>
+	</select>
+
+</div>
+@*<div ng-if="IsEvent()">*@  
+<div ng-if="IsChallenge()">
+	<table class="table table-bordered">
+		<tr><th>Имя собаки/Оценки</th><th ng-repeat="n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]">{{n}}</th></tr>
+		<tr ng-repeat="dog in dogs">
+			<td>{{dog.DogName}}</td>
+			<td ng-repeat="mark in dog.Marks ">
+				<input type="text" ng-model="mark.mark" />
+			</td>
+		</tr>
+
+	</table>
+
+	<input class="btn" type="button" ng-click="CreateCookie()" value="Сохранить" />
+</div>
+@*</div>*@
+<div ng-if="IsExhebition()">
+	<div ng-include="'exhebition.cshtml'"></div>
+</div>
