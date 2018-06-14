@@ -13,12 +13,9 @@ using System.Web.Http;
 namespace Doggies.Controllers.Api
 {
     [NotRedirectWebApiAuthorize]
-    [RoutePrefix("api/test")]
-    public class TestController : BaseApiController
+    [RoutePrefix("api/judge")]
+    public class JudgeController : BaseApiController
     {
-      
-
-       
         [AllowAnonymous]
         [Route("GetAllEvents")]
         [HttpPost] 
@@ -26,7 +23,7 @@ namespace Doggies.Controllers.Api
         //!!!!------уменьшить объем возвращаемой информации----------
         public async Task<IHttpActionResult> GetAllEvents()
         {
-            List<Event> events = await TestManager.GetAllEvents();
+            List<Event> events = await JudgeManager.GetAllEvents();
             return WrapSuccess(events);
         }
         [AllowAnonymous]
@@ -34,7 +31,7 @@ namespace Doggies.Controllers.Api
         [HttpPost]
         public async Task<IHttpActionResult> SetChallengeValue(int dId, string chName, decimal chValue)
         {
-            await TestManager.SetChallengeValue(dId, chName, chValue);
+            await JudgeManager.SetChallengeValue(dId, chName, chValue);
             return WrapSuccess();
         }
 
@@ -44,16 +41,23 @@ namespace Doggies.Controllers.Api
         //!!!!-----уменьшить объем возвращаемой информации-----------
         public async Task<IHttpActionResult> GetDogsByEventId(int id)
         {
-            List<Dog> dogs = await TestManager.GetDogsByEventId(id);
+            List<Dog> dogs = await JudgeManager.GetDogsByEventId(id);
             return WrapSuccess(dogs);
         }
 
-
-        protected TestManager TestManager
+        [AllowAnonymous]
+        [Route("FillListsForExhebition")]
+        [HttpPost]
+        public async Task<IHttpActionResult> FillListsForExhebition(int eventId)
+        {
+            List<object> users= await JudgeManager.FillListsForExhebition(eventId);
+            return WrapSuccess(users);
+        }
+        protected JudgeManager JudgeManager
         {
             get
             {
-                return Request.GetOwinContext().Get<TestManager>();
+                return Request.GetOwinContext().Get<JudgeManager>();
             }
         }
     }

@@ -5,9 +5,7 @@ using System.Web;
 
 namespace Doggies.Models.Field
 {
-    public class Test
+    public class ExhebitionDocument
     {
-        public int TestId { get; set; }
-        public string TestValue { get; set; }
     }
 }

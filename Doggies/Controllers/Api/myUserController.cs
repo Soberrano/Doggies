@@ -19,14 +19,6 @@ namespace Doggies.Controllers.Api
     [RoutePrefix("api/user")]
     public class myUserController : BaseApiController
     {
-        [AllowAnonymous]
-        [Route("getUserById")]
-        [HttpPost]
-        public async Task<IHttpActionResult> getUserById()
-        {
-            myUser myUser = await myUserManager.GetUserById(1);
-            return WrapSuccess(myUser);
-        }
 
         [AllowAnonymous]
         [Route("GetEventsByUserId")]
@@ -37,19 +29,25 @@ namespace Doggies.Controllers.Api
             return WrapSuccess(events);
         }
 
-     
-        [AllowAnonymous]
+        
         [Route("FillDogsAndEventsLists")]
         [HttpPost]
         public async Task<IHttpActionResult> FillDogsAndEventsLists()
         {
-            return WrapSuccess(await myUserManager.FillDogsAndEventsLists(1));//!!!нужно передавать id пользователя
+            return WrapSuccess(await myUserManager.FillDogsAndEventsLists(CurrentUser.Id));//!!!нужно передавать id пользователя
+        }
+
+        [AllowAnonymous]
+        [Route("SendRequest")]
+        [HttpPost]
+        public async Task<IHttpActionResult> SendRequest(int UserId, int DogId, int OrganizationId)
+        {
+            await myUserManager.SendRequest(UserId, DogId, OrganizationId);
+            return WrapSuccess();
         }
 
 
 
-
-    
 
 
         [AllowAnonymous]

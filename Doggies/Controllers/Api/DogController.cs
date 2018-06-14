@@ -31,7 +31,7 @@ namespace WepApp.Controllers.Api
         [HttpPost]
         public async Task<IHttpActionResult> addDog(Dog model)
         {
-            var temp = await DogManager.addDog(model.DogName, model.VpkosOrLicenceNumber, model.IsMale, model.Color, model.Breed, model.DateOfBirth,CurrentUser.Id, model.MotherId, model.FatherId);
+            var temp = await DogManager.addDog(model.DogName, model.VpkosOrLicenseNumber, model.IsMale, model.Color, model.Breed, model.DateOfBirth,CurrentUser.Id, model.MotherId, model.FatherId);
             return WrapSuccess();
         }
         protected DogManager DogManager

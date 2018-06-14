@@ -120,10 +120,22 @@
 
             return deferred.promise;
         },
+        UserInRoles: function (roles) {
+            var result = false;
+
+            if ($rootScope.user) {
+                var checkRoles = [];
+                if (typeof roles == "object" && roles instanceof Array) checkRoles = roles;
+                else if (typeof roles == "string") checkRoles = roles.split(",");
+                if (checkRoles.filter(function (role) { return $rootScope.user.Roles.indexOf(role.trim().toLowerCase()) != -1; }).length > 0) return true;
+            }
+            return false;
+        },
         IsAuthorized: function () {
             return $rootScope.user ? true : false;
         }
     };
+
     $rootScope.UserInRoles = module.UserInRoles;
 
     $rootScope.IsAuthorized = module.IsAuthorized;

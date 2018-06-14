@@ -225,13 +225,17 @@
     <Compile Include="Controllers\Api\AccountController.cs" />
     <Compile Include="Controllers\Api\DogController.cs" />
     <Compile Include="Controllers\Api\myUserController.cs" />
-    <Compile Include="Controllers\Api\TestController.cs" />
+    <Compile Include="Controllers\Api\JudgeController.cs" />
+    <Compile Include="Controllers\Api\OrganizationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApiResponeWrap.cs" />
+    <Compile Include="Models\Field\Diploma.cs" />
+    <Compile Include="Models\Field\DogAchievment.cs" />
+    <Compile Include="Models\Field\ExhebitionDocument.cs" />
     <Compile Include="Models\Field\myDocument.cs" />
     <Compile Include="Models\Field\Dog.cs" />
     <Compile Include="Models\Field\DogManager.cs" />
@@ -239,10 +243,10 @@
     <Compile Include="Models\Field\Event.cs" />
     <Compile Include="Models\Field\Mark.cs" />
     <Compile Include="Models\Field\Organization.cs" />
+    <Compile Include="Models\Field\OrganizationManager.cs" />
     <Compile Include="Models\Field\Participation.cs" />
     <Compile Include="Models\Field\ProfileManager.cs" />
-    <Compile Include="Models\Field\Test.cs" />
-    <Compile Include="Models\Field\TestManager.cs" />
+    <Compile Include="Models\Field\JudgeManager.cs" />
     <Compile Include="Models\Field\myUser.cs" />
     <Compile Include="Models\Field\myUserManager.cs" />
     <Compile Include="Models\Field\WholeInfoForUser.cs" />
@@ -255,6 +259,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Scripts\Controllers\OrganizationCtrl.js" />
+    <Content Include="Scripts\Services\ProfileService.js" />
+    <Content Include="Views\Shared\myStyles.css" />
     <Content Include="External\angular-aria.js" />
     <Content Include="External\angular-locale_ru-ru.js" />
     <Content Include="External\angular-message-format.js" />
@@ -279,7 +286,7 @@
     <Content Include="Scripts\Controllers\RedirectCtrl.js" />
     <Content Include="Scripts\Controllers\SecurityCtrl.js" />
     <Content Include="Scripts\Controllers\TeachersCtrl.js" />
-    <Content Include="Scripts\Controllers\TestCtrl.js" />
+    <Content Include="Scripts\Controllers\JudgeCtrl.js" />
     <Content Include="Scripts\Controllers\UserCtrl.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -296,9 +303,11 @@
     <Content Include="Scripts\Modules\tools.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\Services\reservationService.js" />
+    <Content Include="Scripts\Services\JudgeService.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -306,18 +315,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SPA\Account\login.cshtml" />
     <Content Include="Views\Home\SPA\Account\register.cshtml" />
     <Content Include="Views\Home\SPA\mainpage.cshtml" />
     <Content Include="Views\Home\SPA\App\addDog.cshtml" />
     <Content Include="Views\Home\SPA\App\dog.cshtml" />
-    <Content Include="Views\Dog\Dogs.cshtml" />
     <Content Include="Views\Home\SPA\App\user.cshtml" />
     <Content Include="Views\Home\SPA\App\judge.cshtml" />
     <Content Include="Views\Home\SPA\User\UserProfile.cshtml" />
-    <Content Include="Views\Home\SPA\App\exhebition.cshtml" />
+    <Content Include="Views\Shared\CommonView.cshtml" />
+    <Content Include="Views\Home\SPA\App\organization.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

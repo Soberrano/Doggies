@@ -37,7 +37,15 @@ webApp.config(["$routeProvider", "$locationProvider",
 			}).
 			when('/user', {
 				templateUrl: 'template/app/user',
-				controller: 'UserCtrl'
+                controller: 'UserCtrl'//,
+                //resolve: {
+                //    auth: ["Security", function (security) {
+                //        return security.checkUserIsAuthorized();
+                //    }],
+                //    access: ["Security", function (security) {
+                //        return security.checkUserInRole(['developer', 'admin']);
+                //    }]
+                //}
             }).
             when('/userProfile', {
                 templateUrl: 'template/User/UserProfile',
@@ -45,8 +53,12 @@ webApp.config(["$routeProvider", "$locationProvider",
             }).
 			when('/judge', {
 				templateUrl: 'template/app/judge',
-				controller: 'TestCtrl'
-            }).
+                controller: 'JudgeCtrl'
+			}).
+			when('/organization', {
+				templateUrl: 'template/app/organization',
+				controller: 'OrganizationCtrl'
+			}).
             otherwise({
                 redirectTo: '/'
             });

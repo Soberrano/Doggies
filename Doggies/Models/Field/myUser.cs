@@ -7,6 +7,7 @@ namespace Doggies.Models.Field
 {
     public class myUser
     {
+        public myUser() { Dogs = new List<Dog>(); }
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string UserSurname { get; set; }

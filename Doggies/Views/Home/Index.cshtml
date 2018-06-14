@@ -10,6 +10,19 @@
     @Styles.Render("~/Content/css") <base href="/" />
 </head>
 <body class="skin-blue-light layout-top-nav">
+    <nav class="navbar navbar-default ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right ">
+                <li class="active"><a href="#">Главная</a></li>
+                <li><a href="#">Что-нибудь</a></li>
+                <li><a href="/judge">Судьи</a></li>
+                <li><a href="/user">Профиль</a></li>
+            </ul>
+        </div>
+    </nav>
     <div id="web-app" class="wrapper">
         <div class="content-wrapper">
             <div id="page" class="container" ng-view></div>

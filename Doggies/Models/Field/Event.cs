@@ -11,7 +11,7 @@ namespace Doggies.Models.Field
         public int OrganizationId { get; set; }
         public DateTime Date { get; set; }
         public string EventName { get; set; }
-        public string EventType { get; set; }
+        public int EventType { get; set; }
         
     }
 }

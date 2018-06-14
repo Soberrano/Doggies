@@ -15,6 +15,8 @@ namespace Doggies.Models
 
         public virtual string UserName { get; set; }
 
+        public virtual IEnumerable<string> Roles { get; set; }
+
         public UserProfile() : this(null) { }
 
         public UserProfile(User user)

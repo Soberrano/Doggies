@@ -110,6 +110,7 @@ namespace Doggies.Controllers.Api
             if (user != null)
             {
                 UserProfile profile = new UserProfile(user);
+                profile.Roles = (await UserManager.GetRolesAsync(user.Id)).Select(a => a.ToLower());
                 return profile;
             }
 

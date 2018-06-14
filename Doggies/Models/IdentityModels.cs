@@ -34,19 +34,15 @@ namespace Doggies.Models
     /// </summary>
     public class Role : IdentityRole<int, UserRole>
     {
-        public string Label { get; set; }
-
-        public string Description { get; set; }
+        public string Name { get; set; }
+        
 
         public Role() : base() { }
-
-        public Role(string roleName) : this(roleName, null) { }
-
-        public Role(string roleName, string roleLabel)
+        
+        public Role(string roleName)
             : base()
         {
             Name = roleName;
-            Label = roleLabel;
         }
     }
     public class RoleManager : RoleManager<Role, int>

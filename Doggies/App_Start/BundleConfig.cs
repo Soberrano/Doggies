@@ -30,19 +30,11 @@ namespace Doggies
                         , "~/Scripts/Modules/requestPromise.js"
                         , "~/Scripts/Modules/security.js"
                         , "~/Scripts/Modules/tools.js"
-
-                        , "~/Scripts/Services/reservationService.js"
-
-                        , "~/Scripts/Controllers/SecurityCtrl.js"
-                        , "~/Scripts/Controllers/RedirectCtrl.js"
-                        , "~/Scripts/Controllers/MainCtrl.js"
-                        , "~/Scripts/Controllers/HallCtrl.js"
-                        , "~/Scripts/Controllers/TeachersCtrl.js"
-                        , "~/Scripts/Controllers/FilterCtrl.js"
-                        , "~/Scripts/Controllers/DogCtrl.js"
-                        , "~/Scripts/Controllers/UserCtrl.js"
-                         , "~/Scripts/Controllers/TestCtrl.js"
-                ));
+                        
+                )
+                .IncludeDirectory("~/Scripts/Services", "*.js", true)
+                .IncludeDirectory("~/Scripts/Controllers", "*.js", true)
+                );
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

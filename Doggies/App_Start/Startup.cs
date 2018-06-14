@@ -68,9 +68,13 @@ namespace Doggies
             {
                 return new myUserManager(context.Get<Concrete>());
             });
-            app.CreatePerOwinContext<TestManager>((IdentityFactoryOptions<TestManager> options, IOwinContext context) =>
+            app.CreatePerOwinContext<JudgeManager>((IdentityFactoryOptions<JudgeManager> options, IOwinContext context) =>
             {
-                return new TestManager(context.Get<Concrete>());
+                return new JudgeManager(context.Get<Concrete>());
+            });
+            app.CreatePerOwinContext<OrganizationManager>((IdentityFactoryOptions<OrganizationManager> options, IOwinContext context) =>
+            {
+                return new OrganizationManager(context.Get<Concrete>());
             });
         }
      

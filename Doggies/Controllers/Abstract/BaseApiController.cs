@@ -28,6 +28,13 @@ namespace Doggies.Controllers.Abstract
                 return Request.GetOwinContext().Authentication;
             }
         }
+        protected RoleManager RoleManager
+        {
+            get
+            {
+                return Request.GetOwinContext().Get<RoleManager>();
+            }
+        }
 
         protected UserManager UserManager
         {
