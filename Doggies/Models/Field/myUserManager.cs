@@ -181,26 +181,7 @@ namespace Doggies.Models.Field
             }
             return null;
         }
-        public async Task SendRequest(int UserId, int DogId, int OrganizationId)
-        {
 
-
-            using (var cnt = await Concrete.OpenConnectionAsync())
-            {
-                await cnt.ExecuteAsync(
-                   sql: "SendRequest",
-                   commandType: CommandType.StoredProcedure,
-                   param: new
-                   {
-
-                       UserId,
-                       DogId,
-                       OrganizationId
-                   }
-                   );
-            }
-
-        }
-
+        
     }
 }

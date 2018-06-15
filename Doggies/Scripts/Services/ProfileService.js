@@ -26,7 +26,12 @@
                 );
             },
             fillDogsAndEventsLists : function () {
-                //if (!$rootScope.IsAuthorized) return null;
+				if (!$rootScope.IsAuthorized) {
+					console.log("не авторизован")
+					return null;
+				}
+
+
                 return requestPromise(
                     {
                         method: "POST",
@@ -40,9 +45,9 @@
                         method: "POST",
                         url: "/api/user/newUserInfo",
                         data: {
-                            UserName: UserName,
-                            UserSurname: UserSurname,
-                            UserPatronymic: UserPatronymic,
+                           Name: UserName,
+                           Surname: UserSurname,
+                           Patronymic: UserPatronymic,
                             Region: Region,
                             City: City,
                             Address: Address

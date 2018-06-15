@@ -22,10 +22,11 @@
 	$scope.events = [];
     
     $scope.profile;//здесь пользователь
-    if ($rootScope.user != undefined) {
+    if ($rootScope.user != undefined) {// если пользователь АВТОРИЗОВАН!
         profile.fillDogsAndEventsLists().then(
             function (data) {//получили пользователя(его вернул fillDogsAndEventsLists)
-                $scope.profile = data;
+				$scope.profile = data;
+				console.log($scope.profile);
                 data.Dogs.forEach(function (dog) {//перебор всех собак пользователя
                     if (dog.Events !== null) {//если список мероприятий собаки не пуст
                         dog.Events.forEach(function (eve) {//перебор мероприятий
@@ -89,19 +90,25 @@
     }
 	$scope.newInfo = {};
 
-	//$scope.SendRequest = function () {
+
+	//территория отправки заявки
+	//$scope.SendRequest = function (
+	//	UserId, DogId, OrganizationId) {
+		
 	//	return requestPromise(
 	//		{
 	//			method: "POST",
-	//			url: "/api/user/SetChallengeValue",
+	//			url: "/api/user/SendRequest",
 	//			params: {
-	//				dId: dId,
-	//				chName: chName,
-	//				chValue: chValue
+
+	//				UserId: UserId,
+	//				DogId: DogId,
+	//				OrganizationId: OrganizationId
 	//			}
 
 	//		});
 	//}
+	
 }]);
 
 

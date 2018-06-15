@@ -59,6 +59,10 @@ webApp.config(["$routeProvider", "$locationProvider",
 				templateUrl: 'template/app/organization',
 				controller: 'OrganizationCtrl'
 			}).
+			when('/request', {
+				templateUrl: 'template/app/request',
+				controller: 'RequestCtrl'
+			}).
             otherwise({
                 redirectTo: '/'
             });

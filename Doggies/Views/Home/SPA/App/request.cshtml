@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>request</title>
+</head>
+<body>
+	<div>
+		make your request
+		<form action="/" method="post">
+			<div>
+				<p>Доступные мероприятия</p>
+				<select class="form-control" >
+					<option ng-repeat="event in events" value="{{event.EventId}}">{{event.EventName}}</option>
+				</select>
+				<p>Мои собаки</p>
+				<select class="form-control">
+					<option value="value">text</option>@*здесь цикл*@
+				</select>
+			</div>
+			<div>
+
+			</div>
+			<input class="btn btn-primary form-control" type="submit" name="name" value="отправить заявку" />
+		</form>
+
+	</div>
+</body>
+</html>

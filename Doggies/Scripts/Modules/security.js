@@ -2,7 +2,10 @@
     var userPromise;
     var module = {
         Login: function (login, password) {
-            if ($rootScope.user != null) return;
+			if ($rootScope.user != null) {
+				console.log("пользователь не определен");
+				return;
+			}
             pageLoader.Regist(function (callback) {
                 $http({
                     method: 'POST',
@@ -15,7 +18,7 @@
                 tools.ResponseUnwrapper(function (data) {
                     userPromise = null;
                     if (data != null) {
-                        console.log(data);
+                        console.log(data);//текущий пользователь
                         $rootScope.user = data;
                     }
                 }));

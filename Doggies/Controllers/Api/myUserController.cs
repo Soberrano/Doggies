@@ -37,14 +37,7 @@ namespace Doggies.Controllers.Api
             return WrapSuccess(await myUserManager.FillDogsAndEventsLists(CurrentUser.Id));//!!!нужно передавать id пользователя
         }
 
-        [AllowAnonymous]
-        [Route("SendRequest")]
-        [HttpPost]
-        public async Task<IHttpActionResult> SendRequest(int UserId, int DogId, int OrganizationId)
-        {
-            await myUserManager.SendRequest(UserId, DogId, OrganizationId);
-            return WrapSuccess();
-        }
+       
 
 
 
