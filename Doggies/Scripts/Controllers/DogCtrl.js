@@ -23,7 +23,7 @@
     })
     
     $scope.addDog = function (DogName, VpkosOrLicenceNumber, IsMale, Color, Breed, DateOfBirth, MotherId, FatherId) {
-        security.addDog(DogName, VpkosOrLicenceNumber, IsMale, Color, Breed, DateOfBirth, MotherId, FatherId);
+        DogService.addDog(DogName, VpkosOrLicenceNumber, IsMale, Color, Breed, DateOfBirth, MotherId, FatherId);
     }
     
 }]);
