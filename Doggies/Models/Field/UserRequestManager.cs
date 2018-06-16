@@ -9,9 +9,9 @@ using System.Web;
 
 namespace Doggies.Models.Field
 {
-    public class RequestManager:Manager
+    public class UserRequestManager:Manager
     {
-        public RequestManager(Concrete concrete) : base(concrete) { }
+        public UserRequestManager(Concrete concrete) : base(concrete) { }
 
         //отправить заявку на мероприятие
         public async Task SendRequest(int UserId, int DogId, int OrganizationId, int EventId)

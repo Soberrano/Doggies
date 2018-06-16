@@ -227,7 +227,7 @@
     <Compile Include="Controllers\Api\myUserController.cs" />
     <Compile Include="Controllers\Api\JudgeController.cs" />
     <Compile Include="Controllers\Api\OrganizationController.cs" />
-    <Compile Include="Controllers\Api\RequestController.cs" />
+    <Compile Include="Controllers\Api\UserRequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,7 +250,7 @@
     <Compile Include="Models\Field\JudgeManager.cs" />
     <Compile Include="Models\Field\myUser.cs" />
     <Compile Include="Models\Field\myUserManager.cs" />
-    <Compile Include="Models\Field\RequestManager.cs" />
+    <Compile Include="Models\Field\UserRequestManager.cs" />
     <Compile Include="Models\Field\WholeInfoForUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Manager.cs" />
@@ -263,7 +263,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Scripts\Controllers\OrganizationCtrl.js" />
     <Content Include="Scripts\Services\DogService.js" />
-    <Content Include="Scripts\Controllers\RequestCtrl.js" />
+    <Content Include="Scripts\Controllers\UserRequestCtrl.js" />
     <Content Include="Scripts\Services\ProfileService.js" />
     <Content Include="Scripts\Services\RequestForEventService.js" />
     <Content Include="Views\Shared\myStyles.css" />

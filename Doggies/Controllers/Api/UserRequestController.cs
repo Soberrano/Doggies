@@ -16,7 +16,7 @@ namespace Doggies.Controllers.Api
         [NotRedirectWebApiAuthorize]
         [AllowAnonymous]
         [RoutePrefix("api/request")]
-        public class RequestController : BaseApiController
+        public class UserRequestController : BaseApiController
         {
 
         [AllowAnonymous]
@@ -45,11 +45,11 @@ namespace Doggies.Controllers.Api
         List<Dog> dogs = await RequestManager.GetNotParticipantsDogs(CurrentUser.Id, eventId);
         return WrapSuccess(dogs);
     }
-    protected RequestManager RequestManager
+    protected UserRequestManager RequestManager
     {
         get
         {
-            return Request.GetOwinContext().Get<RequestManager>();
+            return Request.GetOwinContext().Get<UserRequestManager>();
         }
     }
 }

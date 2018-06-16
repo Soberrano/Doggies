@@ -76,9 +76,9 @@ namespace Doggies
             {
                 return new OrganizationManager(context.Get<Concrete>());
             });
-            app.CreatePerOwinContext<RequestManager>((IdentityFactoryOptions<RequestManager> options, IOwinContext context) =>
+            app.CreatePerOwinContext<UserRequestManager>((IdentityFactoryOptions<UserRequestManager> options, IOwinContext context) =>
             {
-                return new RequestManager(context.Get<Concrete>());
+                return new UserRequestManager(context.Get<Concrete>());
             });
         }
      
