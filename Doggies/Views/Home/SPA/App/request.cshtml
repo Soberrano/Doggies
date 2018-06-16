@@ -16,18 +16,22 @@
 		<form action="/" method="post">
 			<div>
 				<p>Доступные мероприятия</p>
-				<select class="form-control" >
+				<select class="form-control" ng-model="selectedEvent" ng-change="GetDogs()">
 					<option ng-repeat="event in events" value="{{event.EventId}}">{{event.EventName}}</option>
 				</select>
-				<p>Мои собаки</p>
-				<select class="form-control">
-					<option value="value">text</option>@*здесь цикл*@
-				</select>
-			</div>
-			<div>
+				<div ng-show="IsEvent()">
+					<p>Мои собаки</p>
+					<select class="form-control" ng-model="selectedDog">
+						<option ng-repeat="dog in dogs" value="{{dog.DogId}}">{{dog.DogName}}</option>@*здесь цикл*@
+					</select>
+					<div ng-repeat="dog in dogs" ng-class="{Selected: dog.DogId==selectedDog}" ng-click="AddDog(dog.DogId)">
+					{{dog.DogName}}</div>
+				</div>
+				<div ng-if="IsDog()">
 
+					<input class="btn btn-primary form-control" type="button" name="name" value="отправить заявку" ng-click="SendRequest()"/>
+				</div>
 			</div>
-			<input class="btn btn-primary form-control" type="submit" name="name" value="отправить заявку" />
 		</form>
 
 	</div>

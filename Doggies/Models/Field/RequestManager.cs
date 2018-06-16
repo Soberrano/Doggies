@@ -47,12 +47,28 @@ namespace Doggies.Models.Field
                       param: new
                       {
                           dateStart,
-                          dateEnd,
+                          dateEnd
                         
                       }
                      )).ToList();
             }
             return events;
         }
+        public async Task<List<Dog>> GetNotParticipantsDogs(int userId, int eventId)
+        {
+            List<Dog> dogs = null;
+            using (var cnt = await Concrete.OpenConnectionAsync())
+            {
+                dogs = (await cnt.QueryAsync<Dog>(
+                     sql: "dbo.GetNotParticipantsDogs",
+                     commandType: CommandType.StoredProcedure,
+                     param: new { userId,eventId }
+
+                     )).ToList();
+            }
+            return dogs;
+        }
+
+
     }
 }

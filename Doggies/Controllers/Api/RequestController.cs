@@ -22,9 +22,9 @@ namespace Doggies.Controllers.Api
         [AllowAnonymous]
         [Route("SendRequest")]
         [HttpPost]
-        public async Task<IHttpActionResult> SendRequest(int UserId, int DogId, int OrganizationId, int EventId)
+        public async Task<IHttpActionResult> SendRequest(int DogId, int OrganizationId, int EventId)
         {
-            await RequestManager.SendRequest(UserId, DogId, OrganizationId, EventId);
+            await RequestManager.SendRequest(CurrentUser.Id, DogId, OrganizationId, EventId);
             return WrapSuccess();
         }
 
@@ -36,13 +36,21 @@ namespace Doggies.Controllers.Api
             List<Event> events = await RequestManager.GetEventsForDecentAmountOfTime(dateStart, dateEnd);
             return WrapSuccess(events);
         }
-        protected RequestManager RequestManager
-            {
-                get
-                {
-                    return Request.GetOwinContext().Get<RequestManager>();
-                }
-            }
+   
+    [AllowAnonymous]
+    [Route("GetNotParticipantsDogs")]
+    [HttpPost]
+    public async Task<IHttpActionResult> GetNotParticipantsDogs(/*int userId,*/ int eventId)
+    {
+        List<Dog> dogs = await RequestManager.GetNotParticipantsDogs(CurrentUser.Id, eventId);
+        return WrapSuccess(dogs);
+    }
+    protected RequestManager RequestManager
+    {
+        get
+        {
+            return Request.GetOwinContext().Get<RequestManager>();
         }
-    
+    }
+}
 }

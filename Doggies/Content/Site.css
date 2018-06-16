@@ -22,3 +22,6 @@ select,
 textarea {
     max-width: 280px;
 }
+.Selected {
+	border: solid #00ff21 1px;
+}

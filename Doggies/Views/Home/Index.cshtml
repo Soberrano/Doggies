@@ -20,9 +20,15 @@
                 <li><a href="/organization">Организации</a></li>
                 <li><a href="/judge">Судьи</a></li>
                 <li><a href="/user">Профиль</a></li>
+				
             </ul>
         </div>
     </nav>
+
+	<div ng-if="UserInRoles('user')" >
+		<a href="/request">создать заявку</a>
+
+	</div>
     <div id="web-app" class="wrapper">
         <div class="content-wrapper">
             <div id="page" class="container" ng-view></div>

@@ -9,7 +9,7 @@
     $scope.$watch("user", function (newUser) {
         if (newUser) {
             //console.log(searchObject.returnUrl);
-            $location.url(searchObject.returnUrl);
+            $location.url("/user");
         }
     });
     $scope.tryLogin = function (username, password) {
